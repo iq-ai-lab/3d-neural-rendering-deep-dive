@@ -26,7 +26,7 @@ $$\frac{dL}{ds} = -\sigma_t L + \sigma_s \!\int p(\omega', \omega) L\, d\omega' 
 >
 > *로 2D screen 에 projection 되고, **tile-based alpha-compositing***
 >
-> $$C = \sum_i \alpha_i T_i c_i, \qquad T_i = \prod_{j<i}(1-\alpha_j)$$
+> $$C = \sum_i \alpha_i T_i c_i, \qquad T_i = \prod_{j \lt i}(1-\alpha_j)$$
 >
 > *가 왜 NeRF 의 분 단위 렌더링을 100+ FPS 로 바꾸는지 유도할 수 있는 것은 다르다.*
 >
