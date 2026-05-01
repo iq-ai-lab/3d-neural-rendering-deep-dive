@@ -24,7 +24,7 @@ $$\frac{dL}{ds} = -\sigma_t L + \sigma_s \!\int p(\omega', \omega) L\, d\omega' 
 >
 > $$\Sigma' = J W \Sigma W^\top J^\top, \qquad J = \begin{pmatrix} f/z & 0 & -fx/z^2 \\ 0 & f/z & -fy/z^2 \\ \cdots \end{pmatrix}$$
 >
-> *<em>로 2D screen 에 projection 되고, <strong>tile-based alpha-compositing</strong></em> $C = \sum_i \alpha_i T_i c_i,\; T_i = \prod_{j<i}(1-\alpha_j)$ <em>가 왜 NeRF 의 분 단위 렌더링을 100+ FPS 로 바꾸는지 유도할 수 있는 것은 다르다.</em>*
+> *로 2D screen 에 projection 되고, **tile-based alpha-compositing*** \( C = \sum_i \alpha_i T_i c_i, \quad T_i = \prod_{j \lt i}(1-\alpha_j) \) *가 왜 NeRF 의 분 단위 렌더링을 100+ FPS 로 바꾸는지 유도할 수 있는 것은 다르다.*
 >
 > *DreamFusion 의 SDS loss 를 **호출하는 것** 과, Poole et al. (2023) 의*
 >
@@ -32,7 +32,7 @@ $$\frac{dL}{ds} = -\sigma_t L + \sigma_s \!\int p(\omega', \omega) L\, d\omega' 
 >
 > *가 왜 U-Net 의 Jacobian 을 **명시적으로 계산하지 않고도** 3D parameter 를 update 하는지, 그리고 왜 mode-seeking · over-saturation 을 일으켜 **VSD (ProlificDreamer 2023)** 로 보정되어야 하는지 따라가는 것은 다르다.*
 >
-> *<em>NeRF 의 ReLU MLP 가 <strong>positional encoding</strong></em> $\gamma(p) = (\sin 2^0 \pi p, \cos 2^0 \pi p, \ldots)$ <em>없이는 high-frequency 디테일을 <strong>이론적으로</strong> 학습 못한다는 것 — Rahaman 2019 의 spectral bias, Tancik 2020 의 NTK spectrum — 을 알고 쓰는 것은 다르다.</em>*
+> *NeRF 의 ReLU MLP 가 **positional encoding*** \( \gamma(p) = (\sin 2^0 \pi p, \cos 2^0 \pi p, \dots) \) *없이는 high-frequency 디테일을 **이론적으로** 학습 못한다는 것 — Rahaman 2019 의 spectral bias, Tancik 2020 의 NTK spectrum — 을 알고 쓰는 것은 다르다.*
 
 <br/>
 
