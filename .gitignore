@@ -1,0 +1,309 @@
+# =============================================================================
+# 3D & Neural Rendering Deep Dive — .gitignore
+# =============================================================================
+
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# Distribution / Packaging
+.Python
+build/
+dist/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+MANIFEST
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ── Jupyter Notebook ─────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# ── NumPy / PyTorch / 3D framework cache ─────────────────────────────────────
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.ckpt
+
+# Framework caches (PyTorch, nerfstudio, gsplat, threestudio)
+.torch_cache/
+.nerfstudio_cache/
+.gsplat_cache/
+.threestudio_cache/
+
+# ── 3D / Rendering 데이터 ────────────────────────────────────────────────────
+# Captured multi-view images, COLMAP outputs (Ch3 NeRF · Ch4 3DGS)
+images/
+images_*/
+sparse/
+dense/
+colmap/
+colmap_text/
+colmap_db/
+*.db
+
+# Point cloud · mesh · volume
+# (Ch1-02 mesh · Ch1-03 point cloud · Ch1-04 SDF · Ch1-05 occupancy)
+*.ply
+*.obj
+*.stl
+*.glb
+*.gltf
+*.fbx
+*.usd
+*.usdz
+*.usda
+*.usdc
+*.off
+*.xyz
+*.las
+*.laz
+*.pcd
+*.vdb
+*.vox
+
+# NeRF · Gaussian Splatting 학습 산출물
+# (Ch3 NeRF · Ch4 3DGS · Ch5 4DGS)
+nerf_synthetic/
+llff/
+mipnerf360/
+tanks_and_temples/
+deepvoxels/
+blender/
+shiny/
+*.nerf
+*.gaussians
+*.splat
+
+# Triplane / hash grid / feature volume
+# (Ch3-06 Instant-NGP · Ch7-01 LRM)
+triplane/
+hashgrid/
+feature_volumes/
+
+# DTU · ScanNet · Replica · Matterport (대형 3D dataset)
+DTU/
+ScanNet/
+Replica/
+Matterport3D/
+
+# ── Diffusion / Text-to-3D 가중치 ────────────────────────────────────────────
+# Stable Diffusion · DeepFloyd · MVDream · Zero123 · SV3D 체크포인트
+# (Ch6 SDS · VSD · multi-view diffusion)
+sd_models/
+diffusion_models/
+zero123_weights/
+mvdream_weights/
+sv3d_weights/
+threestudio_outputs/
+dreamfusion_runs/
+prolific_dreamer_runs/
+
+# HuggingFace cache (Stable Diffusion · CLIP 등)
+.cache/huggingface/
+hub/
+models--*/
+datasets_cache/
+
+# CLIP / text encoder weights
+clip_models/
+text_encoders/
+
+# ── Experiment outputs ───────────────────────────────────────────────────────
+# 생성된 시각화·렌더링·plot (각 챕터)
+# Ch1: 3D representation 비교 (mesh vs point cloud vs SDF) · Marching Cubes mesh
+# Ch2: Volume rendering 적분 · Beer-Lambert 감쇠 · stratified vs importance
+# Ch3: NeRF rendered novel views · positional encoding ablation · NTK spectrum
+# Ch4: 3D Gaussian ellipsoid · EWA projection · tile rasterization 타이밍
+# Ch5: Nerfies deformation field · 4DGS trajectory · video reconstruction
+# Ch6: SDS mode-seeking · VSD diversity · multi-view consistency
+# Ch7: LRM single-image 3D · DUSt3R pointmap · application demo
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+*.gif
+*.mp4
+*.webm
+*.webp
+
+# 훈련 결과 / 체크포인트
+results/
+outputs/
+logs/
+checkpoints/
+runs/
+wandb/
+mlruns/
+tensorboard/
+tb_logs/
+lightning_logs/
+*.log
+*.csv
+*.tfevents.*
+
+# 환경별 video recording (novel-view rendering · turntable)
+videos/
+recordings/
+turntables/
+*.mov
+*.avi
+
+# 재현 실험 산출물 (논문별)
+reproductions/mildenhall2020_nerf/*.pt
+reproductions/barron2021_mipnerf/*.pt
+reproductions/muller2022_instantngp/*.pt
+reproductions/kerbl2023_3dgs/*.gaussians
+reproductions/zwicker2001_ewa/*.npy
+reproductions/park2021_nerfies/*.pt
+reproductions/park2021_hypernerf/*.pt
+reproductions/wu2024_4dgs/*.gaussians
+reproductions/yang2024_4dgs/*.gaussians
+reproductions/poole2023_dreamfusion/*.pt
+reproductions/wang2023_prolificdreamer/*.pt
+reproductions/liu2023_zero123/*.pt
+reproductions/shi2024_mvdream/*.pt
+reproductions/voleti2024_sv3d/*.pt
+reproductions/li2024_instant3d/*.pt
+reproductions/hong2024_lrm/*.pt
+reproductions/wang2024_dust3r/*.pt
+reproductions/wang2024_mast3r/*.pt
+reproductions/qi2017_pointnet/*.pt
+reproductions/park2019_deepsdf/*.pt
+reproductions/mescheder2019_occnet/*.pt
+reproductions/tancik2020_fourier/*.pt
+reproductions/rahaman2019_spectral/*.pt
+
+# Pretrained weights / scene assets
+pretrained/
+weights/
+scene_assets/
+
+# ── Hyperparameter sweeps ────────────────────────────────────────────────────
+sweeps/
+optuna_studies/
+*.db
+*.sqlite
+*.sqlite3
+
+# ── IDE / Editor ─────────────────────────────────────────────────────────────
+# JetBrains (PyCharm, IntelliJ)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+
+# ── Documentation build ──────────────────────────────────────────────────────
+docs/_build/
+docs/generated/
+site/
+.mkdocs_cache/
+
+# ── Secrets / Credentials ────────────────────────────────────────────────────
+.env.local
+.env.*.local
+secrets.py
+credentials.json
+*.pem
+*.key
+openai_api_key*
+hf_token*
+wandb_api_key*
+
+# ── GPU / CUDA cache ─────────────────────────────────────────────────────────
+.nv_cache/
+.nvidia/
+*.cu.o
+.torch_extensions/
+
+# CUDA build artifacts (gsplat · tiny-cuda-nn 컴파일)
+*.ninja
+*.ninja_log
+*.ninja_deps
+tiny-cuda-nn-build/
+gsplat-build/
+
+# ── Mitsuba · physically-based renderer cache ────────────────────────────────
+mitsuba_cache/
+*.exr
+*.hdr
+
+# ── Miscellaneous ────────────────────────────────────────────────────────────
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+*.mo
+*.pot
+
+# data/ 디렉토리 (학습용 데이터 보존)
+data/
+datasets/
+raw/
+processed/
+!data/.gitkeep
